@@ -1,41 +1,36 @@
 "use strict";
 
-/*
- * CỜ TƯỚNG ONLINE
- *
- * Giai đoạn hiện tại:
- * - Hiển thị popup KEYLOGIN
- * - Chưa xác thực thật
- * - Chưa kết nối server
- *
- * KEYLOGIN thật sẽ KHÔNG được lưu trong JavaScript.
- */
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener("DOMContentLoaded", () => {
     const loginButton = document.getElementById("loginButton");
     const loginKey = document.getElementById("loginKey");
     const loginMessage = document.getElementById("loginMessage");
 
-    loginButton.addEventListener("click", () => {
+    if (!loginButton || !loginKey || !loginMessage) {
+        console.error("Login elements not found.");
+        return;
+    }
+
+    loginButton.addEventListener("click", function () {
+
         const key = loginKey.value.trim();
 
-        if (!key) {
+        if (key === "") {
             loginMessage.textContent = "Vui lòng nhập KEYLOGIN.";
             loginKey.focus();
             return;
         }
 
-        /*
-         * Chưa gửi KEYLOGIN đi đâu.
-         * Backend authentication sẽ được xây dựng ở bước sau.
-         */
         loginMessage.textContent =
-            "Hệ thống xác thực sẽ được kết nối ở bước tiếp theo.";
+            "Hệ thống xác thực đang được xây dựng.";
     });
 
-    loginKey.addEventListener("keydown", (event) => {
+    loginKey.addEventListener("keydown", function (event) {
+
         if (event.key === "Enter") {
             loginButton.click();
         }
+
     });
+
 });

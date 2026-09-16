@@ -1,32 +1,48 @@
+<main id="app">
 
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
+    <!-- Màn hình chính: sẽ được mở sau khi xác thực -->
+    <section id="gameScreen" class="game-screen" aria-hidden="true">
+        <h1>Cờ Tướng Online</h1>
+    </section>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+    <!-- Popup KEYLOGIN -->
+    <div
+        id="loginOverlay"
+        class="login-overlay"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="loginTitle"
     >
+        <div class="login-popup">
 
-    <meta
-        name="description"
-        content="Cờ Tướng Việt Yên"
-    >
+            <h1 id="loginTitle">Cờ Tướng Online</h1>
 
-    <title>Cờ Tướng Việt Yên</title>
+            <p class="login-notice">
+                Cần KEYLOGIN? Vui lòng liên hệ
+                <span id="contactInfo">...</span>
+            </p>
 
-    <link rel="stylesheet" href="css/style.css">
-</head>
+            <label for="loginKey">KEYLOGIN</label>
 
-<body>
+            <input
+                id="loginKey"
+                type="password"
+                autocomplete="off"
+                placeholder="Nhập KEYLOGIN"
+                maxlength="128"
+            >
 
-    <!-- Nội dung website sẽ được xây dựng ở các bước tiếp theo -->
-    <main id="app">
-        <h1>Cờ Tướng Thôn Việt Yên Online</h1>
-    </main>
+            <button id="loginButton" type="button">
+                XÁC NHẬN
+            </button>
 
-    <script src="js/app.js"></script>
+            <p
+                id="loginMessage"
+                class="login-message"
+                aria-live="polite"
+            ></p>
 
-</body>
-</html>
+        </div>
+    </div>
+
+</main>
